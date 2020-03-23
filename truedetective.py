@@ -1,8 +1,8 @@
 def is_twodigit(number):
-    return True if len(number) == 2 and int(number) % 2 != 0 else False
+    return True if len(str(number)) == 2 and int(number) % 2 != 0 else False
 
 
-print(is_twodigit('11'))
+# print(is_twodigit('11'))
 
 
 def is_leap_year(year):
@@ -15,7 +15,7 @@ def is_leap_year(year):
     return True if year % 4 == 0 and year % 100 != 0 or year % 100 == 0 and year % 400 == 0 else False
 
 
-print(is_leap_year(1995))
+# print(is_leap_year(1995))
 
 
 def is_sunday(day, weekday_of_first):
