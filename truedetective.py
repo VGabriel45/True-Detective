@@ -2,6 +2,25 @@ days = {'M': 1, 'T': 2, 'W': 3, 'Th': 4, 'F': 5, 'Sa': 6, 'S': 7}
 
 
 def is_twodigit(number):
+<<<<<<< HEAD
+    return True if len(str(number)) == 2 and int(number) % 2 != 0 else False
+
+
+# print(is_twodigit('11'))
+
+
+def is_leap_year(year):
+    # if year % 4 == 0 and year % 100 != 0:
+    #     return True
+    # if year % 100 == 0 and year % 400 == 0:
+    #     return True
+    # else:
+    #     return False
+    return True if year % 4 == 0 and year % 100 != 0 or year % 100 == 0 and year % 400 == 0 else False
+
+
+# print(is_leap_year(1995))
+=======
     return len(str(number)) == 2 and int(number) % 2 != 0
 
 
@@ -11,6 +30,7 @@ def has_access(user, users_groups, file_owner, writable_by_owner, file_group, wr
 
 def is_leap_year(year):
     return year % 4 == 0 and year % 100 != 0 or year % 100 == 0 and year % 400 == 0
+>>>>>>> acc68ed612a7b476d345fc1a9c8e1e95e67ca0f5
 
 
 def is_sunday(day, weekday_of_first):
