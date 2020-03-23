@@ -17,38 +17,9 @@ def is_sunday(day, weekday_of_first):
     return True if weekday_of_first and days.keys() and (((days[weekday_of_first] - 1) + day) % 7 == 0) and ((days[weekday_of_first] - 1) + day <= 31) else False
 
 
-print(is_sunday(7, 'M'))
-
-
 def should_bring_umbrella(rains, wind_scale, cloudy, red_sky, strong_flower_smell, spiders_down, lying_cattle, strong_sunshine):
     return rains and wind_scale < 7 or ((cloudy and wind_scale < 7) and (red_sky or strong_flower_smell or spiders_down or lying_cattle)) or (wind_scale < 7 and strong_sunshine)
 
 
 def should_take_a_nap(want_to, trouble_sleeping, after_4pm, at_work, mad_boss, have_30m, have_10m):
-    if want_to:
-        if not trouble_sleeping:
-            if not after_4pm:
-                if not at_work:
-                    if have_30m:
-                        return True
-                    else:
-                        if have_10m:
-                            return True
-                        else:
-                            return False
-                elif not mad_boss:
-                    if have_30m:
-                        return True
-                    elif have_10m:
-                        return True
-                    else:
-                        return False
-                else:
-                    return False
-            else:
-                return False
-        else:
-            return False
-    else:
-        return False
-    # return True if want_to and not trouble_sleeping and not after_4pm and not at_work and not mad_boss and have_30m else False
+    return (want_to and not trouble_sleeping and not after_4pm) and ((not at_work and have_30m or have_10m) or (at_work and not mad_boss and (have_30m or have_10m)))
