@@ -6,7 +6,7 @@ def is_twodigit(number):
 
 
 def has_access(user, users_groups, file_owner, writable_by_owner, file_group, writable_by_group, writable_by_others, sudo_mode):
-    return True if user in users_groups or file_owner and writable_by_owner or file_group and writable_by_group or writable_by_others and sudo_mode else False
+    return True if user in users_groups or file_owner and (writable_by_owner == True) or (file_group and writable_by_group == True) or (writable_by_others and sudo_mode == True) else False
 
 
 def is_leap_year(year):
