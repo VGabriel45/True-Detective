@@ -29,6 +29,10 @@ def is_sunday(day, weekday_of_first):
         if (((days[weekday_of_first] - 1) + day) % 7 == 0):
             if ((days[weekday_of_first] - 1) + day <= 31):
                 return True
+            else:
+                return False
+        else:
+            return False
     else:
         return False
 
