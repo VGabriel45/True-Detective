@@ -1,5 +1,12 @@
+days = {'M': 1, 'T': 2, 'W': 3, 'Th': 4, 'F': 5, 'Sa': 6, 'S': 7}
+
+
 def is_twodigit(number):
     return len(str(number)) == 2 and int(number) % 2 != 0
+
+
+def has_access(user, users_groups, file_owner, writable_by_owner, file_group, writable_by_group, writable_by_others, sudo_mode):
+    return True if user in users_groups or file_owner and writable_by_owner or file_group and writable_by_group or writable_by_others and sudo_mode else False
 
 
 def is_leap_year(year):
@@ -7,43 +14,7 @@ def is_leap_year(year):
 
 
 def is_sunday(day, weekday_of_first):
-    days = {'M': 1, 'T': 2, 'W': 3, 'Th': 4, 'F': 5, 'Sa': 6, 'S': 7}
-    for key in days.keys():
-        if (weekday_of_first == key) and (((days[key] - 1) + day) % 7 == 0) and ((days[key] - 1) + day <= 31):
-            return True
-    else:
-        return False
-
-    # if weekday_of_first == 'M':
-    #     weekday_of_first = 1
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # if weekday_of_first == 'T':
-    #     weekday_of_first = 2
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # if weekday_of_first == 'W':
-    #     weekday_of_first = 3
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # if weekday_of_first == 'Th':
-    #     weekday_of_first = 4
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # if weekday_of_first == 'F':
-    #     weekday_of_first = 5
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # if weekday_of_first == 'Sa':
-    #     weekday_of_first = 6
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # if weekday_of_first == 'S':
-    #     weekday_of_first = 7
-    #     if ((weekday_of_first - 1) + day) % 7 == 0 and (weekday_of_first - 1) + day <= 31:
-    #         return True
-    # else:
-    #     return False
+    return True if weekday_of_first and days.keys() and (((days[weekday_of_first] - 1) + day) % 7 == 0) and ((days[weekday_of_first] - 1) + day <= 31) else False
 
 
 print(is_sunday(7, 'M'))
@@ -54,4 +25,30 @@ def should_bring_umbrella(rains, wind_scale, cloudy, red_sky, strong_flower_smel
 
 
 def should_take_a_nap(want_to, trouble_sleeping, after_4pm, at_work, mad_boss, have_30m, have_10m):
-    pass
+    if want_to:
+        if not trouble_sleeping:
+            if not after_4pm:
+                if not at_work:
+                    if have_30m:
+                        return True
+                    else:
+                        if have_10m:
+                            return True
+                        else:
+                            return False
+                elif not mad_boss:
+                    if have_30m:
+                        return True
+                    elif have_10m:
+                        return True
+                    else:
+                        return False
+                else:
+                    return False
+            else:
+                return False
+        else:
+            return False
+    else:
+        return False
+    # return True if want_to and not trouble_sleeping and not after_4pm and not at_work and not mad_boss and have_30m else False
