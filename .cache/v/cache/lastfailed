@@ -1,0 +1,5 @@
+{
+  "test_whatif.py::test_has_access": true, 
+  "test_whatif.py::test_is_sunday": true, 
+  "test_whatif.py::test_should_take_a_nap": true
+}

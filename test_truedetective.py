@@ -46,6 +46,7 @@ def test_is_twodigit_odd():
 #     assert is_sunday(32, 'F') is False
 
 
+<<<<<<< HEAD
 # def test_should_bring_umbrella():
 #     assert should_bring_umbrella(
 #         True, 2, True, False, False, False, False, False) is True
@@ -67,6 +68,29 @@ def test_is_twodigit_odd():
 #         False, 0, False, False, False, False, False, True) is True
 #     assert should_bring_umbrella(
 #         False, 8, False, False, False, False, False, True) is False
+=======
+def test_should_bring_umbrella():
+    assert should_bring_umbrella(
+        True, 2, True, False, False, False, False, False) is True
+    assert should_bring_umbrella(
+        True, 7, True, False, False, False, False, False) is False
+    assert should_bring_umbrella(
+        False, 0, True, False, False, False, False, False) is False
+    assert should_bring_umbrella(
+        False, 0, True, False, True, False, False, False) is True
+    assert should_bring_umbrella(
+        False, 0, True, False, False, False, True, False) is True
+    assert should_bring_umbrella(
+        False, 6, True, True, True, True, True, False) is True
+    assert should_bring_umbrella(
+        False, 7, True, True, True, True, True, False) is False
+    assert should_bring_umbrella(
+        False, 0, False, False, False, False, False, False) is False
+    assert should_bring_umbrella(
+        False, 0, False, False, False, False, False, True) is True
+    assert should_bring_umbrella(
+        False, 8, False, False, False, False, False, True) is False
+>>>>>>> acc68ed612a7b476d345fc1a9c8e1e95e67ca0f5
 
 
 # def test_should_take_a_nap():
